@@ -1,0 +1,181 @@
+.App{
+    background-color: rgb(170, 170, 170);
+    min-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+.header{
+    min-height: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+}
+.header h1,p{
+    color: white;
+}
+.header button{
+    background: white;
+    padding: 10px 20px;
+    border-color: black;
+    color: black;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow: 0px 4px 4px rgb(44, 44, 44);
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+.header button:hover{
+    background-color: rgb(140, 185, 72);
+}
+.header button:disabled{
+    background: gray;
+    cursor: not-allowed;
+}
+.search-form{
+    min-height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.search-bar{
+    box-shadow: 0px 4px 4px rgb(44, 44, 44);
+    width: 50%;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.search-button{
+    width: 140px;
+    background: white;
+    padding: 10px 20px;
+    margin: 2px;
+    border-color: black;
+    color: black;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow: 0px 4px 4px rgb(44, 44, 44);
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+.search-button:hover{
+    background-color: rgb(199, 199, 199);
+}
+.set-button{
+    flex-wrap: wrap;
+}
+.color-btn-base{
+    width: 40px;
+    height: 40px;
+    margin: 1px;
+    border-radius: 50%;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+}
+.search-bar-colors{ 
+    border-color: black;
+    background-color: white;
+}
+.w-active{
+    background-color: rgb(253, 250, 219);
+    border-color: rgb(253, 250, 219);
+    border-style: none;
+}
+.hover-w:hover{
+    background-color: rgb(253, 250, 219);
+    border-color: rgb(253, 250, 219);
+    border-style: none;
+}
+.u-active{
+    background-color: rgb(167, 203, 229);
+    border-color: rgb(167, 203, 229);
+    border-style: none;
+}
+.hover-u:hover{
+    background-color: rgb(167, 203, 229);
+    border-color: rgb(167, 203, 229);
+    border-style: none;
+}
+.b-active{
+    background-color: rgb(181, 186, 189);
+    border-color: rgb(181, 186, 189);
+    border-style: none;
+}
+.hover-b:hover{
+    background-color: rgb(181, 186, 189);
+    border-color: rgb(181, 186, 189);
+    border-style: none;
+}
+.r-active{
+    background-color: rgb(213, 136, 94);
+    border-color: rgb(213, 136, 94);
+    border-style: none;
+}
+.hover-r:hover{
+    background-color: rgb(213, 136, 94);
+    border-color: rgb(213, 136, 94);
+    border-style: none;
+}
+.g-active{
+    background-color: rgb(142, 197, 174);
+    border-color: rgb(142, 197, 174);
+    border-style: none;
+}
+.hover-g:hover{
+    background-color: rgb(142, 197, 174);
+    border-color: rgb(142, 197, 174);
+    border-style: none;
+}
+.c-active{
+    background-color: rgb(217, 207, 206);
+    border-color: rgb(217, 207, 206);
+    border-style: none;
+}
+.hover-c:hover{
+    background-color: rgb(217, 207, 206);
+    border-color: rgb(217, 207, 206);
+    border-style: none;
+}
+.cards{
+    margin: 5px;
+    display: grid;
+    justify-items: center;
+}
+@media (min-width: 600px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1200px) {
+    .cards { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1500px) {
+    .cards { grid-template-columns: repeat(5, 1fr); }
+}
+@media (min-width: 1800px) {
+    .cards { grid-template-columns: repeat(6, 1fr); }
+}
+.footer{
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    border-radius: 15px 15px 0px 0px;
+}
+.footer-mtgjson{
+    display: inline-flex; 
+    align-items: center;
+}
+.footer-mtgjson p{
+    margin-left: 10px;
+    color: white;
+}
