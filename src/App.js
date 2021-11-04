@@ -372,7 +372,7 @@ const App = () => {
       <div>
         <div className="header"> {/*Header */}
           <h1>
-            CodyCards
+            Card Collection
           </h1>
           <div>
             <button disabled={!updateState} onClick={startUpdate}>
