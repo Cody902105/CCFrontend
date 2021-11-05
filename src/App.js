@@ -10,6 +10,7 @@ const App = () => {
   const [updateState,setUpdateState] = useState(false);//if there is an avalable update to the system
   //States that affect results
   const [cards, setCards] = useState([]);//the list of all cards
+  const [count, setCount] = useState(0);//an int with the number of cards
   const [sets, setSets] = useState([]);//the list of all sets
   const [cardType, setCardType] = useState([]);//list of all the Types
   const [cardSubType, setCardSubType] = useState([]);//list of all subtypes
@@ -39,6 +40,7 @@ const App = () => {
   //Call from api initial call
   useEffect(() => {
     getCards();
+    getCount();
     getSets();
     getTypes();
     getSubTypes();
@@ -153,6 +155,18 @@ const App = () => {
       const data =  await responce.json();
       setCards(data.cards);
       console.log(data.cards);
+    }catch(err){
+      console.log(err);
+    }
+  }
+  const getCount = async () => {
+    try{
+      var FULL_URL = BASE_URL+"/card/count?";
+      FULL_URL = constructQuery(FULL_URL);
+      const responce = await fetch(FULL_URL);
+      const data =  await responce.json();
+      setCount(data.returnCount);
+      console.log(data.returnCount);
     }catch(err){
       console.log(err);
     }
@@ -374,6 +388,7 @@ const App = () => {
           <h1>
             Card Collection
           </h1>
+          <p>{"Cards found: " + count}</p>
           <div>
             <button disabled={!updateState} onClick={startUpdate}>
               Update
