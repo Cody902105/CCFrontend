@@ -390,147 +390,147 @@ const App = () => {
           </h1>
           <p>{"Cards found: " + count}</p>
           <div>
-            <button disabled={!updateState} onClick={startUpdate}>
+            <button disabled={!updateState} onClick={startUpdate} id="btnUpdate">
               Update
             </button>
           </div>
         </div>
-        <form className="search-form" onSubmit={simpleSearch}> {/*Navigation*/}
+        <form className="search-form" onSubmit={simpleSearch} id="filterCardForm"> {/*Navigation*/}
           <div> {/*Color buttons */}
-            <button className={"color-btn-base " + whiteState + " hover-w"} type="button" onClick={() => addColours('W')}> 
+            <button className={"color-btn-base " + whiteState + " hover-w"} id="btnWhiteSelect" type="button" onClick={() => addColours('W')}> 
               <i className="ms ms-w ms-fw ms-2x"></i>
             </button>
-            <button className={"color-btn-base " + blueState + " hover-u"} type="button" onClick={() => addColours('U')}>
+            <button className={"color-btn-base " + blueState + " hover-u"} id="btnBlueSelect" type="button" onClick={() => addColours('U')}>
               <i className="ms ms-u ms-fw ms-2x"></i>
             </button>
-            <button className={"color-btn-base " + blackState + " hover-b"} type="button" onClick={() => addColours('B')}>
+            <button className={"color-btn-base " + blackState + " hover-b"} id="btnBlackSelect" type="button" onClick={() => addColours('B')}>
               <i className="ms ms-b ms-fw ms-2x"></i>
             </button>
-            <button className={"color-btn-base " + redState + " hover-r"} type="button" onClick={() => addColours('R')}>
+            <button className={"color-btn-base " + redState + " hover-r"} id="btnRedSelect" type="button" onClick={() => addColours('R')}>
               <i className="ms ms-r ms-fw ms-2x"></i>
             </button>
-            <button className={"color-btn-base " + greenState + " hover-g"} type="button" onClick={() => addColours('G')}>
+            <button className={"color-btn-base " + greenState + " hover-g"} id="btnGreenSelect" type="button" onClick={() => addColours('G')}>
               <i className="ms ms-g ms-fw ms-2x"></i>
             </button>
-            <button className={"color-btn-base " + colorLessState + " hover-c"} type="button" onClick={() => addColours('0')}>
+            <button className={"color-btn-base " + colorLessState + " hover-c"} id ="btnColorlessSelect" type="button" onClick={() => addColours('0')}>
               <i className="ms ms-c ms-fw ms-2x"></i>
             </button>
           </div>
-          <input className="search-bar" type="text" value={search} onChange={normalSearch}/>
-          <button className="search-button" type="submit">
+          <input className="search-bar" type="text" id="searchBar" value={search} onChange={normalSearch}/>
+          <button className="search-button" type="submit" id="searchButton">
             Search
           </button>
           <div>{/*Selector bars*/}
             <select className="search-button" name="selectorSets" id="setCode" value={setState} onChange={searchSetState}>
-              <option value="">
+              <option value="" key="theSetCode">
                 {"Set"}
               </option>
               {sets.map(theSet =>( 
-                <option value={theSet}>
+                <option value={theSet} key={theSet}>
                   {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theSet}
                 </option>
               ))}
             </select>
             <select className="search-button" name="selectorLegalities" id="setLegalities" value={cardLegalistiesState} onChange={searchLegalitiesState}>
-              <option value="">
+              <option value="" key="blankLegalities">
                 {"Legalities"}
               </option>
-              <option value="Commander">
+              <option value="Commander" key="commanderSelector">
                 {"Commander"}
               </option>
-              <option value="Standard">
+              <option value="Standard" key="standardSelector">
                 {"Standard"}
               </option>
-              <option value="Modern">
+              <option value="Modern" key="modernSelector">
                 {"Modern"}
               </option>
-              <option value="Legacy">
+              <option value="Legacy" key="legacySelector">
                 {"Legacy"}
               </option>
-              <option value="Brawl">
+              <option value="Brawl" key="brawlSelector">
                 {"Brawl"}
               </option>
-              <option value="Duel">
+              <option value="Duel" key="duelSelector">
                 {"Duel"}
               </option>
-              <option value="Future">
+              <option value="Future" key="futureSelector">
                 {"Future"}
               </option>
-              <option value="Frontier">
+              <option value="Frontier" key="frontierSelector">
                 {"Frontier"}
               </option>
-              <option value="Historic">
+              <option value="Historic" key="historicSelector">
                 {"Historic"}
               </option>
-              <option value="Penny">
+              <option value="Penny" key="pennySelector">
                 {"Penny Dreadful"}
               </option>
-              <option value="Pioneer">
+              <option value="Pioneer" key="pioneetSelector">
                 {"Pioneer"}
               </option>
-              <option value="Vintage">
+              <option value="Vintage" key="vintageSelector">
                 {"Vintage"}
               </option>
-              <option value="Pauper">
+              <option value="Pauper" key="pauperSelector">
                 {"Pauper"}
               </option>
             </select>
             <select className="search-button" name="selectorType" id="typecode" value={cardTypeState} onChange={searchTypeState}>
-              <option value="">
+              <option value="" key="theTypeCode">
                 {"Type"}
               </option>
               {cardType.map(theType =>( 
-                <option value={theType}>
+                <option value={theType} key={theType}>
                   {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theType}
                 </option>
               ))}
             </select>
             <select className="search-button" name="selectorSubType" id="subtypecode" value={cardSubTypeState} onChange={searchSubTypeState}>
-              <option value="">
+              <option value="" key="theSubtypes">
                 {"Sub Type"}
               </option>
               {cardSubType.map(theSubType =>( 
-                <option value={theSubType}>
+                <option value={theSubType} key={theSubType}>
                   {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theSubType}
                 </option>
               ))}
             </select>
             <select className="search-button" name="selectorSuperType" id="supertypecode" value={cardSuperTypeState} onChange={searchSuperTypeState}>
-              <option value="">
+              <option value="" key="theSupertype">
                 {"Super Type"}
               </option>
               {cardSuperType.map(theSuperType =>( 
-                <option value={theSuperType}>
+                <option value={theSuperType} key={theSuperType}>
                   {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theSuperType}
                 </option>
               ))}
             </select>
             <select className="search-button" name="selectorAvalability" id="avalibilitycode" value={cardAvailabilityState} onChange={searchAvailabilityState}>
-              <option value="">
+              <option value="" key="theAvalabilitycode">
                 {"Availability"}
               </option>
               {cardAvailability.map(theAvailability =>( 
-                <option value={theAvailability}>
+                <option value={theAvailability} key={theAvailability}>
                   {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theAvailability}
                 </option>
               ))}
             </select>
             <select className="search-button" name="selectorRarity" id="raritycode" value={cardRarityState} onChange={searchRarityState}>
-              <option value="">
+              <option value="" key="theRaritycode">
                 {"Rarity"}
               </option>
               {cardRarity.map(theRarity =>( 
-                <option value={theRarity}>
+                <option value={theRarity} key={theRarity}>
                   {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theRarity}
                 </option>
               ))}
             </select>
             <select className="search-button" name="selectorKeyword" id="keywordcode" value={cardKeywordState} onChange={searchKeywordState}>
-              <option value="">
+              <option value="" key="thekeywordCode">
                 {"Keyword"}
               </option>
               {cardKeyword.map(theKeyword =>( 
-                <option value={theKeyword}>
+                <option value={theKeyword} key={theKeyword}>
                   {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theKeyword}
                 </option>
               ))}
