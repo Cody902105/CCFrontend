@@ -154,7 +154,7 @@ const App = () => {
       const responce = await fetch(FULL_URL);
       const data =  await responce.json();
       setCards(data.cards);
-      //console.log(data.cards);
+      console.log(data.cards);
     }catch(err){
       console.log(err);
     }
