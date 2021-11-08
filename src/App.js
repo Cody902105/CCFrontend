@@ -153,8 +153,8 @@ const App = () => {
       FULL_URL = constructQuery(FULL_URL);
       const responce = await fetch(FULL_URL);
       const data =  await responce.json();
-      //setCards(data.cards);
-      console.log(data.cards);
+      setCards(data.cards);
+      //console.log(data.cards);
     }catch(err){
       console.log(err);
     }
