@@ -29,6 +29,7 @@ const App = () => {
   const [cardRarityState, setCardRarityState] = useState('');//the Chosen Rarity
   const [cardKeywordState, setCardKeywordState] = useState([]);//list of all keywords
   const [colorState, setColorState] = useState('');//the selected colours
+  const [uniqueState, setUniqueState] = useState('');//if we are searching for unique cards
   const [pagesState, setPagesState] = useState(0);//the selected render of the page we are on
   //color based states, defines the styles of buttons
   const [whiteState, setWhiteState] = useState("search-bar-colors");
@@ -37,6 +38,7 @@ const App = () => {
   const [redState, setRedState] = useState("search-bar-colors");
   const [greenState, setGreenState] = useState("search-bar-colors");
   const [colorLessState, setColorLessStateState] = useState("search-bar-colors");
+  const [colorUniqueState, setcolorUniqueState] = useState("search-bar-colors");
   //Call from api initial call
   useEffect(() => {
     getCards();
@@ -48,7 +50,7 @@ const App = () => {
     getAvailability();
     getRarity();
     getKeywords();
-  }, [query, setState, colorState, cardTypeState, cardSubTypeState, cardSuperTypeState, cardAvailabilityState, cardRarityState, cardKeywordState, pagesState, cardLegalistiesState]);
+  }, [query, setState, colorState, cardTypeState, cardSubTypeState, cardSuperTypeState, cardAvailabilityState, cardRarityState, cardKeywordState, pagesState, cardLegalistiesState, uniqueState]);
   //Whenever called make the page state 0
   useEffect(() => {
     if(pagesState !== 0){
@@ -337,6 +339,15 @@ const App = () => {
         break;
     }
   }
+  function searchingUnique() {
+    if(uniqueState === ''){
+      setcolorUniqueState("c-active");
+      setUniqueState('1');
+    }else{
+      setcolorUniqueState("search-bar-colors");
+      setUniqueState('');
+    }
+  }
   function constructQuery(FULL_URL) {
     var reformedURL = FULL_URL;
     reformedURL = reformedURL+"text="+query+"&";
@@ -375,6 +386,9 @@ const App = () => {
       if (cardLegalistiesState !== ''){
         reformedURL = reformedURL+"&legalities=" + cardLegalistiesState + "&";
       }
+      if (uniqueState !== "" && (FULL_URL.includes('/search?') || FULL_URL.includes('/count?'))){
+        reformedURL = reformedURL+"&unique=" + uniqueState + "&";
+      }
       if (pagesState > 0 && FULL_URL.includes('/search?')){
         reformedURL = reformedURL+"&next=" + pagesState + "&";
       }
@@ -397,6 +411,9 @@ const App = () => {
         </div>
         <form className="search-form" onSubmit={simpleSearch} id="filterCardForm"> {/*Navigation*/}
           <div> {/*Color buttons */}
+            <button className={"color-btn-base " + colorUniqueState + " hover-c"} id="uniqueButton" type="button" onClick={() => searchingUnique()}>
+              ?
+            </button>
             <button className={"color-btn-base " + whiteState + " hover-w"} id="btnWhiteSelect" type="button" onClick={() => addColours('W')}> 
               <i className="ms ms-w ms-fw ms-2x"></i>
             </button>
