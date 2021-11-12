@@ -1,12 +1,13 @@
 import React,{ useState }from "react";
 import style from "./card.module.css";
 
-const Card = ({imgID,StartOwned,name,rarity,SetCode,cardType,otherSide}) =>{
+const Card = ({imgID,StartOwned,name,rarity,SetCode,cardType,otherSide,price}) =>{
     const BASE_URL = "http://localhost:8080/card/addOwned?uuid="+name+"&";
     const [owned, setOwned] = useState(StartOwned);
     const imgUrl = "https://api.scryfall.com/cards/"+ imgID +"?format=image";
     const [imageState, setImageState] = useState(imgUrl);
     var imgUrlOtherSide = null;
+    var CURR_PRICE = 0;
     async function changeOwn(bool){
         var FULL_URL = "";
         var result = "";
@@ -37,6 +38,11 @@ const Card = ({imgID,StartOwned,name,rarity,SetCode,cardType,otherSide}) =>{
                 setImageState(imgUrl);
             }
         }
+    }
+    if (price === undefined){
+        CURR_PRICE = 0;
+    }else{
+        CURR_PRICE = price;
     }
     if (owned === undefined){
         setOwned(0);
@@ -74,7 +80,8 @@ const Card = ({imgID,StartOwned,name,rarity,SetCode,cardType,otherSide}) =>{
                 <button onClick={() => changeOwn(false)}>
                     -
                 </button>
-                <span>{owned}</span>
+                <span>{"Owned: "+owned}</span>
+                <span>{"£ " + CURR_PRICE}</span>
                 <button onClick={() => changeOwn(true)}>
                     +
                 </button>

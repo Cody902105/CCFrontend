@@ -574,7 +574,8 @@ const App = () => {
             SetCode={card.setCode}
             rarity={card.rarity}
             cardType={card.types}
-            otherSide={card.otherFaceIds[0]} />
+            otherSide={card.otherFaceIds[0]}
+            price={card.price} />
           ))}
         </div>
         <div>{/*back and next buttons */}
