@@ -80,7 +80,7 @@ const Card = ({imgID,StartOwned,name,rarity,SetCode,cardType,otherSide,price}) =
                 <button onClick={() => changeOwn(false)}>
                     -
                 </button>
-                <span>{"Owned: "+owned}</span>
+                <span>{"Owned: "+ owned}</span>
                 <span>{"£ " + CURR_PRICE}</span>
                 <button onClick={() => changeOwn(true)}>
                     +
