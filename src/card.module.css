@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-evenly;
     border-radius: 15px;
+    padding: 0px 0px 20px 0px;
 }
 .bar button{
     display: inline-block;
@@ -25,6 +26,7 @@
     width: 300px;
     height: auto;
     box-shadow: 1px 1px 4px 4px rgb(83, 83, 83);
+    
 }
 .bar i{
     float: right;
