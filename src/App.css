@@ -6,7 +6,6 @@
     border: 0px;
 }
 .header{
-    min-height: 5vh;
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
@@ -43,11 +42,12 @@
     align-items: center;
     background: black;
     border-radius: 0px 0px 15px 15px;
+    padding-bottom: 10px;
 }
 
 .search-bar{
     box-shadow: 0px 4px 4px rgb(44, 44, 44);
-    width: 50%;
+    width: 500px;
     padding: 10px;
     border-radius: 15px;
 }

@@ -450,10 +450,12 @@ const App = () => {
               <i className="ms ms-c ms-fw ms-2x"></i>
             </button>
           </div>
-          <input className="search-bar" type="text" id="searchBar" value={search} onChange={normalSearch}/>
+          <div>
+          <input className="search-bar" type="text" id="searchBar" placeholder="Try searching for a card name or text" value={search} onChange={normalSearch}/>
           <button className="search-button" type="submit" id="searchButton">
             Search
           </button>
+          </div>
           <div>{/*Selector bars*/}
             <select className="search-button" name="selectorSets" id="setCode" value={setState} onChange={searchSetState}>
               <option value="" key="theSetCode">
