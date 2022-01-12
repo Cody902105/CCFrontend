@@ -589,7 +589,6 @@ const App = () => {
             imgID={card.identifiers.scryfallId}
             key={card.uuid}
             name={card.uuid}
-            StartOwned={card.owned}
             SetCode={card.setCode}
             rarity={card.rarity}
             cardType={card.types}
