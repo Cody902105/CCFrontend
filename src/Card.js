@@ -44,10 +44,8 @@ const Card = ({imgID,name,rarity,keyruneCode,cardType,otherSide,price}) =>{
     }else{
         SETCODE = keyruneCode.toLowerCase();
     }
-    
     const setIcon = "ss ss-" + SETCODE + " ss-"+ RARITY +" ss-grad ss-2x ss-fw";
     const typeIcon = "ms ms-" + CARDTYPE + " ms-2x ms-fw";
-    
     return(
         <div>
             <img src={imageState} alt="" className={style.picture} onClick={changeImage}/>
