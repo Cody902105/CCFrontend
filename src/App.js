@@ -9,7 +9,7 @@ const App = () => {
   //system States
   const [updateState,setUpdateState] = useState(false);//if there is an avalable update to the system
   //States that affect results
-  const [keyruneCodes, SetkeyruneCodes] = useState({});//list of keyrunes
+  const [keyruneCodes, SetkeyruneCodes] = useState({});//list of keyrune codes
   const [cards, setCards] = useState([]);//the list of all cards
   const [count, setCount] = useState(0);//an int with the number of cards
   const [sets, setSets] = useState([]);//the list of all sets
