@@ -604,8 +604,8 @@ const App = () => {
           <Card
             imgID={card.identifiers.scryfallId}
             key={card.uuid}
-            name={card.uuid}
-            SetCode={keyruneCodes[card.setCode]}
+            name={card.name}
+            keyruneCode={keyruneCodes[card.setCode]}
             rarity={card.rarity}
             cardType={card.types}
             otherSide={card.otherFaceIds[0]}

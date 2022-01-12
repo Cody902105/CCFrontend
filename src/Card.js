@@ -1,7 +1,7 @@
 import React,{ useState }from "react";
 import style from "./card.module.css";
 
-const Card = ({imgID,name,rarity,SetCode,cardType,otherSide,price}) =>{
+const Card = ({imgID,name,rarity,keyruneCode,cardType,otherSide,price}) =>{
     const imgUrl = "https://api.scryfall.com/cards/"+ imgID +"?format=image";
     const [imageState, setImageState] = useState(imgUrl);
     var imgUrlOtherSide = null;
@@ -39,10 +39,10 @@ const Card = ({imgID,name,rarity,SetCode,cardType,otherSide,price}) =>{
         RARITY = "timeshifted";
     }
     var SETCODE = "";
-    if (SetCode === null || SetCode === undefined){
+    if (keyruneCode === null || keyruneCode === undefined){
         SETCODE = "DEFAULT";
     }else{
-        SETCODE = SetCode.toLowerCase();
+        SETCODE = keyruneCode.toLowerCase();
     }
     
     const setIcon = "ss ss-" + SETCODE + " ss-"+ RARITY +" ss-grad ss-2x ss-fw";
