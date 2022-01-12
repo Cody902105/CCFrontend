@@ -9,6 +9,7 @@ const App = () => {
   //system States
   const [updateState,setUpdateState] = useState(false);//if there is an avalable update to the system
   //States that affect results
+  const [keyruneCodes, SetkeyruneCodes] = useState({});//list of keyrunes
   const [cards, setCards] = useState([]);//the list of all cards
   const [count, setCount] = useState(0);//an int with the number of cards
   const [sets, setSets] = useState([]);//the list of all sets
@@ -62,6 +63,7 @@ const App = () => {
   //Whenever we load we run this effect
   useEffect(() => {
     getUpdatable();
+    getKeyruneCodes();
   },[]);
   //initial api request
   const getUpdatable = async () => {
@@ -70,6 +72,20 @@ const App = () => {
       const responce = await fetch(FULL_URL);
       const data = await responce.json();
       setUpdateState(data.result);
+    }catch(err){
+      console.log(err);
+    }
+  }
+  const getKeyruneCodes = async () => {
+    try{
+      var FULL_URL = BASE_URL + "/card/keyruneCodes?"; 
+      const responce = await fetch(FULL_URL);
+      const data = await responce.json();
+      var KeyRuneData = {};
+      for (const pair in data.message){
+        KeyRuneData[data.message[pair].code] = data.message[pair].keyruneCode;
+      }
+      SetkeyruneCodes(KeyRuneData);
     }catch(err){
       console.log(err);
     }
@@ -589,7 +605,7 @@ const App = () => {
             imgID={card.identifiers.scryfallId}
             key={card.uuid}
             name={card.uuid}
-            SetCode={card.setCode}
+            SetCode={keyruneCodes[card.setCode]}
             rarity={card.rarity}
             cardType={card.types}
             otherSide={card.otherFaceIds[0]}

@@ -39,8 +39,8 @@ const Card = ({imgID,name,rarity,SetCode,cardType,otherSide,price}) =>{
         RARITY = "timeshifted";
     }
     var SETCODE = "";
-    if (SetCode === null || SetCode === "TSB"){
-        SETCODE = "tsp";
+    if (SetCode === null || SetCode === undefined){
+        SETCODE = "DEFAULT";
     }else{
         SETCODE = SetCode.toLowerCase();
     }
