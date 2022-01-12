@@ -2,7 +2,6 @@ import React,{ useState }from "react";
 import style from "./card.module.css";
 
 const Card = ({imgID,name,rarity,SetCode,cardType,otherSide,price}) =>{
-    const BASE_URL = "http://localhost:8080/card/addOwned?uuid="+name+"&";
     const imgUrl = "https://api.scryfall.com/cards/"+ imgID +"?format=image";
     const [imageState, setImageState] = useState(imgUrl);
     var imgUrlOtherSide = null;
