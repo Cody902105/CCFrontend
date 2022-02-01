@@ -13,6 +13,7 @@ const App = () => {
   const [cards, setCards] = useState([]);//the list of all cards
   const [count, setCount] = useState(0);//an int with the number of cards
   const [sets, setSets] = useState([]);//the list of all sets
+  const [currSet, setCurrSet] = useState("");//name of the current set
   const [cardType, setCardType] = useState([]);//list of all the Types
   const [cardSubType, setCardSubType] = useState([]);//list of all subtypes
   const [cardSuperType, setCardSuperType] = useState([]);//list of all supertypes
@@ -60,6 +61,10 @@ const App = () => {
       setPagesState(0);
     }
   },[query, setState, colorState, cardTypeState, cardSubTypeState, cardSuperTypeState, cardAvailabilityState, cardRarityState, cardKeywordState, cardLegalistiesState]);
+  //Whenever we set the set, update to show the set name
+  useEffect(() => {
+    getCurrSetName();
+  }, [setState]);
   //Whenever we load we run this effect
   useEffect(() => {
     getUpdatable();
@@ -86,6 +91,21 @@ const App = () => {
         KeyRuneData[data.message[pair].code] = data.message[pair].keyruneCode;
       }
       SetkeyruneCodes(KeyRuneData);
+    }catch(err){
+      console.log(err);
+    }
+  }
+  const getCurrSetName = async () => {
+    try{
+      var FULL_URL = BASE_URL + "/card/setName?";
+      FULL_URL = FULL_URL + "code=" + setState;
+      const responce = await fetch(FULL_URL);
+      const data = await responce.json();
+      if(data.message.name != undefined){
+        setCurrSet(data.message.name);
+      }else{
+        setCurrSet("");
+      }
     }catch(err){
       console.log(err);
     }
@@ -432,6 +452,7 @@ const App = () => {
           <h1>
             Card Collection
           </h1>
+          <p>{" "+currSet}</p>
           <p>{"Cards found: " + count}</p>
           <div>
             <button disabled={!updateState} onClick={startUpdate} id="btnUpdate">
