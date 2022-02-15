@@ -101,7 +101,7 @@ const App = () => {
       FULL_URL = FULL_URL + "code=" + setState;
       const responce = await fetch(FULL_URL);
       const data = await responce.json();
-      if(data.message.name != undefined){
+      if(data.message.name !== undefined){
         setCurrSet(data.message.name);
       }else{
         setCurrSet("");
