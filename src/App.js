@@ -7,8 +7,12 @@ import "./css/mana.css";
 const App = () => {
   const BASE_URL = "http://localhost:8080";
   //system States
-  const [updateState,setUpdateState] = useState(false);//if there is an avalable update to the system
+  const [updateState, setUpdateState] = useState(false);//if there is an avalable update to the system
+  //User states - the setting of this state will need changing when logins are implimented
+  const [username, SetUsername] = useState('testUser');//the Current username
   //States that affect results
+  const [deck, SetDeck] = useState("collection");//the currently chosen color
+  const [searchDeck, SetSearchDeck] = useState(false);//weather we are searching by deck
   const [keyruneCodes, SetkeyruneCodes] = useState({});//list of keyrune codes
   const [cards, setCards] = useState([]);//the list of all cards
   const [count, setCount] = useState(0);//an int with the number of cards
@@ -54,7 +58,7 @@ const App = () => {
     getAvailability();
     getRarity();
     getKeywords();
-  }, [query, setState, colorState, cardTypeState, cardSubTypeState, cardSuperTypeState, cardAvailabilityState, cardRarityState, cardKeywordState, pagesState, cardLegalistiesState, uniqueState, priceState]);
+  }, [query, setState, colorState, cardTypeState, cardSubTypeState, cardSuperTypeState, cardAvailabilityState, cardRarityState, cardKeywordState, pagesState, cardLegalistiesState, uniqueState, priceState, searchDeck, deck]);
   //Whenever called make the page state 0
   useEffect(() => {
     if(pagesState !== 0){
@@ -398,6 +402,10 @@ const App = () => {
   function constructQuery(FULL_URL) {
     var reformedURL = FULL_URL;
     reformedURL = reformedURL+"text="+query+"&";
+      if (searchDeck){
+        reformedURL = reformedURL+"&userName="+username+"&";
+        reformedURL = reformedURL+"&deckName="+deck+"&";
+      }
       if (setState !== "" && !FULL_URL.includes('/sets?')){
         //console.log(setState);
         reformedURL = reformedURL+"&set="+setState+"&";
@@ -623,6 +631,8 @@ const App = () => {
         <div className="cards"> {/*Card rendering*/}
           {cards.map(card =>(
           <Card
+            deckName={deck}
+            userName={username}
             imgID={card.identifiers.scryfallId}
             key={card.uuid}
             name={card.name}

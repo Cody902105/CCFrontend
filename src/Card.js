@@ -1,7 +1,7 @@
 import React,{ useState }from "react";
 import style from "./card.module.css";
 
-const Card = ({imgID,name,rarity,keyruneCode,cardType,otherSide,price}) =>{
+const Card = ({deckName,userName,imgID,name,rarity,keyruneCode,cardType,otherSide,price}) =>{
     const imgUrl = "https://api.scryfall.com/cards/"+ imgID +"?format=image";
     const [imageState, setImageState] = useState(imgUrl);
     var imgUrlOtherSide = null;
@@ -43,6 +43,18 @@ const Card = ({imgID,name,rarity,keyruneCode,cardType,otherSide,price}) =>{
         SETCODE = "DEFAULT";
     }else{
         SETCODE = keyruneCode.toLowerCase();
+    }
+    var DECKNAME = "";
+    if (deckName === null){
+        DECKNAME = deckName;
+    }else{
+        DECKNAME = "collection";
+    }
+    var USERNAME = "";
+    if (userName === null){
+        USERNAME = "testUser";
+    }else{
+        USERNAME = userName;
     }
     const setIcon = "ss ss-" + SETCODE + " ss-"+ RARITY +" ss-grad ss-2x ss-fw";
     const typeIcon = "ms ms-" + CARDTYPE + " ms-2x ms-fw";
