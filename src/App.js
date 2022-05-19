@@ -631,6 +631,7 @@ const App = () => {
         <div className="cards"> {/*Card rendering*/}
           {cards.map(card =>(
           <Card
+            sysurl={BASE_URL}
             deckName={deck}
             userName={username}
             imgID={card.identifiers.scryfallId}
