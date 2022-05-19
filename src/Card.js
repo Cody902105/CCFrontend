@@ -57,7 +57,7 @@ const Card = ({sysurl,deckName,userName,imgID,name,rarity,keyruneCode,cardType,o
         USERNAME = userName;
     }
     var QUERY = "?deckName="+DECKNAME+"&uuid="+key+"&userName="+USERNAME;
-    var BREWADDURL = sysurl+"/brew/add"+QUERY
+    var BREWADDURL = sysurl+"/brew/add"+QUERY;
     const setIcon = "ss ss-" + SETCODE + " ss-"+ RARITY +" ss-grad ss-2x ss-fw";
     const typeIcon = "ms ms-" + CARDTYPE + " ms-2x ms-fw";
     return(
