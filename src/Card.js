@@ -65,7 +65,7 @@ const Card = ({sysurl,deckName,userName,imgID,name,rarity,keyruneCode,cardType,o
             <img src={imageState} alt="" className={style.picture} onClick={changeImage}/>
             <div className={style.bar}>
                 <i className={typeIcon}></i> 
-                <span>{"£ " + CURR_PRICE}</span>
+                <span>{"€ " + CURR_PRICE}</span>
                 <i className={setIcon}></i>
             </div>
         </div>
