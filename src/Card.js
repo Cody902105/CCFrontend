@@ -18,7 +18,7 @@ const Card = ({sysurl,deckName,userName,imgID,name,rarity,keyruneCode,cardType,o
             }
         }
     }
-    if (price === undefined){
+    if (price === undefined || price === null){
         CURR_PRICE = 0;
     }else{
         CURR_PRICE = price;
