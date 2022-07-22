@@ -507,9 +507,7 @@ const App = () => {
                 {"Set"}
               </option>
               {sets.map(theSet =>( 
-                <option value={theSet} key={theSet}>
-                  {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theSet}
-                </option>
+                <option value={theSet} key={theSet} label={theSet /*"<span dangerouslySetInnerHTML={{ __html : '<i className={"ss ss-"+theSet.toLowerCase()}></i>' }}></span>"*/}> </option>
               ))}
             </select>
             <select className="search-button" name="selectorLegalities" id="setLegalities" value={cardLegalistiesState} onChange={searchLegalitiesState}>
