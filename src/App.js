@@ -560,7 +560,7 @@ const App = () => {
               </option>
               {cardType.map(theType =>( 
                 <option value={theType} key={theType}>
-                  {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theType}
+                  {theType}
                 </option>
               ))}
             </select>
@@ -570,7 +570,7 @@ const App = () => {
               </option>
               {cardSubType.map(theSubType =>( 
                 <option value={theSubType} key={theSubType}>
-                  {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theSubType}
+                  {theSubType}
                 </option>
               ))}
             </select>
@@ -580,7 +580,7 @@ const App = () => {
               </option>
               {cardSuperType.map(theSuperType =>( 
                 <option value={theSuperType} key={theSuperType}>
-                  {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theSuperType}
+                  {theSuperType}
                 </option>
               ))}
             </select>
@@ -590,7 +590,7 @@ const App = () => {
               </option>
               {cardAvailability.map(theAvailability =>( 
                 <option value={theAvailability} key={theAvailability}>
-                  {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theAvailability}
+                  {theAvailability}
                 </option>
               ))}
             </select>
@@ -600,7 +600,7 @@ const App = () => {
               </option>
               {cardRarity.map(theRarity =>( 
                 <option value={theRarity} key={theRarity}>
-                  {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theRarity}
+                  {theRarity}
                 </option>
               ))}
             </select>
@@ -610,7 +610,7 @@ const App = () => {
               </option>
               {cardKeyword.map(theKeyword =>( 
                 <option value={theKeyword} key={theKeyword}>
-                  {/*<i className={"ss ss-"+theSet.toLowerCase()}></i>*/}{" " + theKeyword}
+                  {theKeyword}
                 </option>
               ))}
             </select>
