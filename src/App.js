@@ -9,7 +9,7 @@ const App = () => {
   //system States
   const [updateState, setUpdateState] = useState(false);//if there is an avalable update to the system
   //User states - the setting of this state will need changing when logins are implimented
-  const [username, SetUsername] = useState('testUser');//the Current username
+  const [username, SetUsername] = useState('Cody902105');//the Current username
   //States that affect results
   const [deck, SetDeck] = useState("collection");//the currently chosen color
   const [searchDeck, SetSearchDeck] = useState(false);//weather we are searching by deck
@@ -507,7 +507,7 @@ const App = () => {
                 {"Set"}
               </option>
               {sets.map(theSet =>( 
-                <option value={theSet} key={theSet} label={theSet /*"<span dangerouslySetInnerHTML={{ __html : '<i className={"ss ss-"+theSet.toLowerCase()}></i>' }}></span>"*/}> </option>
+                <option value={theSet} key={theSet} label={theSet /*"dangerouslySetInnerHTML={{ __html : '<i className={"ss ss-"+theSet.toLowerCase()}></i>' }}>*/}> </option>
               ))}
             </select>
             <select className="search-button" name="selectorLegalities" id="setLegalities" value={cardLegalistiesState} onChange={searchLegalitiesState}>
@@ -629,11 +629,13 @@ const App = () => {
         <div className="cards"> {/*Card rendering*/}
           {cards.map(card =>(
           <Card
+            brew={card.brew}
             sysurl={BASE_URL}
             deckName={deck}
             userName={username}
             imgID={card.identifiers.scryfallId}
             key={card.uuid}
+            uuidkey={card.uuid}
             name={card.name}
             keyruneCode={keyruneCodes[card.setCode]}
             rarity={card.rarity}
