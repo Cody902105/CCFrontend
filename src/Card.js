@@ -23,6 +23,10 @@ const Card = ({uuidkey,brew,sysurl,deckName,userName,imgID,name,rarity,keyruneCo
         ammount = ammount++;
         const responce = await fetch(BREWADDURL);
     }
+    const Removecard = async () => {
+        ammount = ammount--;
+        const responce = await fetch(BREWREMOVE);
+    }
     if (brew.length !== 0){
         ammount = brew[0].ammount;
     }
@@ -72,6 +76,7 @@ const Card = ({uuidkey,brew,sysurl,deckName,userName,imgID,name,rarity,keyruneCo
     }
     var QUERY = "?deckName="+DECKNAME+"&uuid="+UUIDKey+"&userName="+USERNAME;
     var BREWADDURL = sysurl+"/brew/add"+QUERY;
+    var BREWREMOVE = sysurl+"/brew/remove"+QUERY;
     const setIcon = "ss ss-" + SETCODE + " ss-"+ RARITY +" ss-grad ss-2x ss-fw";
     const typeIcon = "ms ms-" + CARDTYPE + " ms-2x ms-fw";
     return(
@@ -79,6 +84,7 @@ const Card = ({uuidkey,brew,sysurl,deckName,userName,imgID,name,rarity,keyruneCo
             <img src={imageState} alt="" className={style.picture} onClick={changeImage}/>
             <div className={style.bar}>
                 <i className={typeIcon}></i> 
+                <button onClick={Removecard}>-</button>
                 <span>{"€ " + CURR_PRICE}</span>
                 <button onClick={Addcard}>{ammount}</button>
                 <i className={setIcon}></i>
